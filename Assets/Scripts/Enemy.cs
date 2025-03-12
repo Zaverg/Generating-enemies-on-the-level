@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
 
     public void Move()
     {
-        transform.Translate(_direction.normalized * _speed * Time.deltaTime, Space.World);
+        transform.Translate(_direction * _speed * Time.deltaTime, Space.World);
     }
 
     public IEnumerator WaitAndRelease()

@@ -33,7 +33,7 @@ public class Spawner : MonoBehaviour
         Vector3 direction = GetDirections();
 
         enemy.transform.position = point.transform.position;
-        enemy.SetDirection(direction);
+        enemy.SetDirection(direction.normalized);
 
         enemy.Release += Release;
     }
