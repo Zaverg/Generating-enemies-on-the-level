@@ -1,14 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private List<Point> _points = new List<Point>();
-    [SerializeField] private Pool _pool;
+    [SerializeField] private Enemy _enemyPrefab;
 
+    private ObjectPool<Enemy> _pool;
+    private WaitForSeconds _wait;
     private float _seconds = 2;
-    
+
+    private void Awake()
+    {
+        _wait = new WaitForSeconds(_seconds);
+        _pool = new ObjectPool<Enemy>(Create, OnGetEnemy, OnReleaseEnemy);
+    }
+
     private void OnEnable()
     {
         StartCoroutine(SpawnWithDelay());
@@ -20,8 +29,8 @@ public class Spawner : MonoBehaviour
             return;
 
         Point point = GetPoint();
-        Enemy enemy = _pool.GetEnemy();
-        Vector3 direction = GetDirection();
+        Enemy enemy = _pool.Get();
+        Vector3 direction = GetDirections();
 
         enemy.transform.position = point.transform.position;
         enemy.SetDirection(direction);
@@ -32,20 +41,42 @@ public class Spawner : MonoBehaviour
     private Point GetPoint() =>
         _points[Random.Range(0, _points.Count)];
 
-    private Vector3 GetDirection() =>
-         new Vector3(Random.Range(0, 2) * 2 - 1, 0, Random.Range(0, 2) * 2 - 1);
+    private Vector3 GetDirections()
+    {
+        int min = 0;
+        int max = 1;
+
+        int rangeMultiplier = 2;
+        int rangeOffset = 1;
+
+        return new Vector3(Random.Range(min, max + 1) * rangeMultiplier - rangeOffset, 0, Random.Range(min, max + 1) * rangeMultiplier - rangeOffset); 
+    }
     
     private void Release(Enemy enemy)
     {
         enemy.Release -= Release;
-        _pool.OnRelease(enemy);
+        _pool.Release(enemy);
     }
 
-    public IEnumerator SpawnWithDelay()
+    private Enemy Create() =>
+     Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
+
+    private void OnGetEnemy(Enemy enemy)
+    {
+        enemy.gameObject.SetActive(true);
+    }
+
+    private void OnReleaseEnemy(Enemy enemy)
+    {
+        enemy.transform.position = transform.position;
+        enemy.gameObject.SetActive(false);
+    }
+
+    private IEnumerator SpawnWithDelay()
     {
         while (enabled)
         {
-            yield return new WaitForSeconds(_seconds);
+            yield return _wait;
             Spawn();
         }
     }

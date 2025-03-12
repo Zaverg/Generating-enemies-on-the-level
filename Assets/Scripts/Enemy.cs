@@ -1,24 +1,26 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private Vector3 _direction;
     [SerializeField] private float _secondsToRelease = 10;
     [SerializeField] private float _speed = 4;
+    private Vector3 _direction;
+
+    private WaitForSeconds _wait;
 
     public event Action<Enemy> Release;
-    private Coroutine _coroutine;
+
+    private void Awake()
+    {
+        _wait = new WaitForSeconds(_secondsToRelease);
+    }
 
     private void OnEnable()
     {
-        _coroutine = StartCoroutine(WaitThenRelease());
-    }
-
-    private void OnDisable()
-    {
-        StopCoroutine(_coroutine);
+       StartCoroutine(WaitAndRelease());
     }
 
     public void Update()
@@ -33,12 +35,12 @@ public class Enemy : MonoBehaviour
 
     public void Move()
     {
-        transform.Translate(_direction * _speed * Time.deltaTime);
+        transform.Translate(_direction.normalized * _speed * Time.deltaTime, Space.World);
     }
 
-    public IEnumerator WaitThenRelease()
+    public IEnumerator WaitAndRelease()
     {
-        yield return new WaitForSeconds(_secondsToRelease);
+        yield return _wait;
         Release?.Invoke(this);
     }
 }

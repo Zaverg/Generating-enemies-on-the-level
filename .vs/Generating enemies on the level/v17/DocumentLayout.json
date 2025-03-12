@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\i2016\\Generating enemies on the level\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5BE83DC0-87D7-3C0A-DCCE-73905334B5F1}|Assembly-CSharp.csproj|c:\\users\\i2016\\generating enemies on the level\\assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5BE83DC0-87D7-3C0A-DCCE-73905334B5F1}|Assembly-CSharp.csproj|C:\\Users\\i2016\\Generating enemies on the level\\assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5BE83DC0-87D7-3C0A-DCCE-73905334B5F1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5BE83DC0-87D7-3C0A-DCCE-73905334B5F1}|Assembly-CSharp.csproj|C:\\Users\\i2016\\Generating enemies on the level\\assets\\scripts\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5BE83DC0-87D7-3C0A-DCCE-73905334B5F1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5BE83DC0-87D7-3C0A-DCCE-73905334B5F1}|Assembly-CSharp.csproj|c:\\users\\i2016\\generating enemies on the level\\assets\\scripts\\point.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BE83DC0-87D7-3C0A-DCCE-73905334B5F1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\point.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5BE83DC0-87D7-3C0A-DCCE-73905334B5F1}|Assembly-CSharp.csproj|C:\\Users\\i2016\\Generating enemies on the level\\assets\\scripts\\pool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5BE83DC0-87D7-3C0A-DCCE-73905334B5F1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\pool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5BE83DC0-87D7-3C0A-DCCE-73905334B5F1}|Assembly-CSharp.csproj|c:\\users\\i2016\\generating enemies on the level\\assets\\scripts\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BE83DC0-87D7-3C0A-DCCE-73905334B5F1}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\spawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,8 +22,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Point.cs",
+              "DocumentMoniker": "C:\\Users\\i2016\\Generating enemies on the level\\Assets\\Scripts\\Point.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Point.cs",
+              "ToolTip": "C:\\Users\\i2016\\Generating enemies on the level\\Assets\\Scripts\\Point.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Point.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T14:15:57.528Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -32,7 +45,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy.cs",
               "ToolTip": "C:\\Users\\i2016\\Generating enemies on the level\\Assets\\Scripts\\Enemy.cs",
               "RelativeToolTip": "Assets\\Scripts\\Enemy.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAcAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAACUAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-12T10:27:33.19Z",
               "EditorCaption": ""
@@ -40,25 +53,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Pool.cs",
-              "DocumentMoniker": "C:\\Users\\i2016\\Generating enemies on the level\\Assets\\Scripts\\Pool.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Pool.cs",
-              "ToolTip": "C:\\Users\\i2016\\Generating enemies on the level\\Assets\\Scripts\\Pool.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Pool.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T10:11:07.339Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Spawner.cs",
               "DocumentMoniker": "C:\\Users\\i2016\\Generating enemies on the level\\Assets\\Scripts\\Spawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Spawner.cs",
               "ToolTip": "C:\\Users\\i2016\\Generating enemies on the level\\Assets\\Scripts\\Spawner.cs",
               "RelativeToolTip": "Assets\\Scripts\\Spawner.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAwAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-12T10:05:18.357Z",
               "EditorCaption": ""
