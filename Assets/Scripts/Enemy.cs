@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _secondsToRelease = 10;
     [SerializeField] private float _speed = 4;
-    private Vector3 _direction;
+    private Transform _target;
 
     private WaitForSeconds _wait;
 
@@ -28,14 +28,14 @@ public class Enemy : MonoBehaviour
         Move();
     }
 
-    public void SetDirection(Vector3 direction)
+    public void SetTarget(Transform target)
     {
-        _direction = direction;
+        _target = target;
     }
 
     public void Move()
     {
-        transform.Translate(_direction * _speed * Time.deltaTime, Space.World);
+        transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
     }
 
     public IEnumerator WaitAndRelease()

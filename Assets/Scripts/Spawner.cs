@@ -5,7 +5,7 @@ using UnityEngine.Pool;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private List<Point> _points = new List<Point>();
+    [SerializeField] List<Transform> _targets = new List<Transform>();
     [SerializeField] private Enemy _enemyPrefab;
 
     private ObjectPool<Enemy> _pool;
@@ -25,21 +25,14 @@ public class Spawner : MonoBehaviour
 
     private void Spawn()
     {
-        if (_points.Count == 0)
-            return;
-
-        Point point = GetPoint();
         Enemy enemy = _pool.Get();
         Vector3 direction = GetDirections();
 
-        enemy.transform.position = point.transform.position;
-        enemy.SetDirection(direction.normalized);
+        enemy.transform.position = transform.position;
+        enemy.SetTarget(_targets[Random.Range(0, _targets.Count)]);
 
         enemy.Release += Release;
     }
-
-    private Point GetPoint() =>
-        _points[Random.Range(0, _points.Count)];
 
     private Vector3 GetDirections()
     {
