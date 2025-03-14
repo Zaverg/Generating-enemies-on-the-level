@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _secondsToRelease = 10;
     [SerializeField] private float _speed = 4;
-    private Transform _target;
+    private Target _target;
 
     private WaitForSeconds _wait;
 
@@ -28,14 +28,14 @@ public class Enemy : MonoBehaviour
         Move();
     }
 
-    public void SetTarget(Transform target)
+    public void SetTarget(Target target)
     {
         _target = target;
     }
 
     public void Move()
     {
-        transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, _speed * Time.deltaTime);
     }
 
     public IEnumerator WaitAndRelease()

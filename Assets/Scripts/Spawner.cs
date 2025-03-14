@@ -5,7 +5,7 @@ using UnityEngine.Pool;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] List<Transform> _targets = new List<Transform>();
+    [SerializeField] List<Target> _targets = new List<Target>();
     [SerializeField] private Enemy _enemyPrefab;
 
     private ObjectPool<Enemy> _pool;
@@ -26,23 +26,11 @@ public class Spawner : MonoBehaviour
     private void Spawn()
     {
         Enemy enemy = _pool.Get();
-        Vector3 direction = GetDirections();
 
         enemy.transform.position = transform.position;
         enemy.SetTarget(_targets[Random.Range(0, _targets.Count)]);
 
         enemy.Release += Release;
-    }
-
-    private Vector3 GetDirections()
-    {
-        int min = 0;
-        int max = 1;
-
-        int rangeMultiplier = 2;
-        int rangeOffset = 1;
-
-        return new Vector3(Random.Range(min, max + 1) * rangeMultiplier - rangeOffset, 0, Random.Range(min, max + 1) * rangeMultiplier - rangeOffset); 
     }
     
     private void Release(Enemy enemy)
